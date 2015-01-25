@@ -1,0 +1,24 @@
+[run]
+branch = True
+omit =
+    src/apps/*/migrations/*
+    src/apps/*/tests/*
+
+[paths]
+source = src/apps
+
+[report]
+exclude_lines =
+    # pragma to skip coverage
+    pragma: no cover
+
+    # don't cover interfaces or assertions
+    raise AssertionError
+    raise NotImplementedError
+
+    # don't cover any entry point code
+    if __name__ == .__main__.:
+show_missing = True
+
+[html]
+directory = .coverage_html

@@ -1,0 +1,3 @@
+-r base.txt
+
+django-supervisor==0.3

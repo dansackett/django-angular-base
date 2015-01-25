@@ -1,0 +1,20 @@
+# Python Bytecode
+*.py[co]
+__pycache__
+
+# DB Files
+sqlite3.db
+db.sqlite3
+
+# Settings
+src/core/settings/local.py
+
+# Static
+var/www/*
+
+# Coverage
+.coverage
+.coverage_html
+
+# Logs
+var/log/*
