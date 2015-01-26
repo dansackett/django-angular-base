@@ -91,7 +91,7 @@ USE_TZ = True
 ## Static and Media
 ###############################################################################
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(REPO_DIR, 'var', 'www', 'static')
 STATICFILES_DIRS = (
     os.path.join(SRC_DIR, 'static'),
@@ -100,9 +100,9 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(REPO_DIR, 'var', 'www', 'media')
 
-# TEMPLATE_DIRS = (
-#     os.path.join(CORE_DIR, 'templates'),
-# )
+TEMPLATE_DIRS = (
+    os.path.join(SRC_DIR, 'templates'),
+)
 
 # http://stackoverflow.com/a/24143109/1639449
 # Used to get request params into context for templatetags

@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Base Template for my projects">
+        <meta name="author" content="Dan Sackett">
+        <base href="/">
+        <title>Django-Angular-Base</title>
+
+        <!-- CSS -->
+        <link href="{% static "css/dependencies.min.css" %}" rel="stylesheet" />
+        <link href="{% static "css/styles.css" %}" rel="stylesheet" />
+    </head>
+    <body>
+
+        <navigation></navigation>
+        <div class="container" ui-view></div>
+
+        <!-- JS -->
+        <script src="{% static "js/dependencies.min.js" %}"></script>
+        <script src="{% static "js/app.min.js" %}"></script>
+    </body>
+</html>
