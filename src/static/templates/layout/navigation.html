@@ -13,6 +13,12 @@
             <ul class="nav navbar-nav">
                 <li ui-sref-active="active"><a ui-sref="index">Home</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-hide="authenticated" ui-sref-active="active"><a ui-sref="login">Login</a></li>
+                <li ng-hide="authenticated" ui-sref-active="active"><a ui-sref="register">Register</a></li>
+                <li ng-show="authenticated" class="navbar-text" >Logged in as {{ authenticated_user.email }}</li>
+                <li ng-show="authenticated"><a href="javascript:;" ng-click="logout()">Logout</a></li>
+            </ul>
         </div>
     </div>
 </div>

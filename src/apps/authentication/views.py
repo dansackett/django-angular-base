@@ -31,11 +31,12 @@ class AccountViewSet(viewsets.ModelViewSet):
         serializer = self.serializer_class(data=request.data)
 
         if serializer.is_valid():
-            account = Account.objects.create_user(**serializer.DATA)
-
-            account.set_password(request.DATA.get('password'))
-            account.save()
-            return Response(serializer.DATA, status=status.HTTP_201_CREATED)
+            account = Account.objects.create_user(
+                serializer.data.get('email'),
+                serializer.data.get('password'),
+                username=serializer.data.get('username'),
+            )
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         context = {
             'status': 'Bad request',
@@ -51,8 +52,8 @@ class LoginView(views.APIView):
     """
     def post(self, request, format=None):
         data = json.loads(request.body)
-        email = data.get('email', None)
-        password = data.get('password', None)
+        email = data.get('email')
+        password = data.get('password')
         account = authenticate(email=email, password=password)
 
         if account is not None:

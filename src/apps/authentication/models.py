@@ -7,19 +7,18 @@ class AccountManager(BaseUserManager):
     """
     Object methods for Account.
     """
-    def create_user(self, username, email, password, **kwargs):
+    def create_user(self, email, password, **kwargs):
         """
         Create a new user instance.
         """
         if not email:
             raise ValueError('Users must have a valid email address.')
 
-        if not username:
-            raise ValueError('Users must have a username.')
+        if not kwargs.get('username'):
+            raise ValueError('Users must have a valid username.')
 
         account = self.model(
-            email=self.normalize_email(email),
-            username=username
+            email=self.normalize_email(email), username=kwargs.get('username')
         )
 
         account.set_password(password)
@@ -53,8 +52,8 @@ class Account(AbstractBaseUser):
 
     objects = AccountManager()
 
-    USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
 
     def __unicode__(self):
         """

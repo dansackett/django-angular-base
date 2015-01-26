@@ -4,6 +4,7 @@
         'app.config',
         'app.routes',
         'app.layout',
+        'app.authentication',
     ]
 
     # Global app module declarations here
