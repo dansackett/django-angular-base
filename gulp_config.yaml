@@ -25,7 +25,8 @@ third_party:
         - src/static/third-party/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf
         - src/static/third-party/bootstrap/dist/fonts/glyphicons-halflings-regular.woff
         - src/static/third-party/fontawesome/fonts/FontAwesome.otf
-        - src/static/third-party/fontawesome/fonts/FontAwesome-webfont.eot
-        - src/static/third-party/fontawesome/fonts/FontAwesome-webfont.svg
-        - src/static/third-party/fontawesome/fonts/FontAwesome-webfont.ttf
-        - src/static/third-party/fontawesome/fonts/FontAwesome-webfont.woff
+        - src/static/third-party/fontawesome/fonts/fontawesome-webfont.eot
+        - src/static/third-party/fontawesome/fonts/fontawesome-webfont.svg
+        - src/static/third-party/fontawesome/fonts/fontawesome-webfont.ttf
+        - src/static/third-party/fontawesome/fonts/fontawesome-webfont.woff
+        - src/static/third-party/fontawesome/fonts/fontawesome-webfont.woff2
