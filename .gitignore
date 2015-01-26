@@ -3,8 +3,8 @@
 __pycache__
 
 # DB Files
-sqlite3.db
-db.sqlite3
+src/core/sqlite3.db
+src/core/db.sqlite3
 
 # Settings
 src/core/settings/local.py

@@ -22,11 +22,12 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 ## Path Settings
 ###############################################################################
 
-PROJECT_DIR = os.path.dirname(__file__)
-BASE_DIR = os.path.dirname(PROJECT_DIR)
-REPO_DIR = os.path.dirname(BASE_DIR)
+SETTINGS_DIR = os.path.dirname(__file__)  # src/core/settings/
+CORE_DIR = os.path.dirname(SETTINGS_DIR)  # src/core/
+SRC_DIR = os.path.dirname(CORE_DIR)  # src/
+REPO_DIR = os.path.dirname(SRC_DIR)  # /
 
-sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
+sys.path.insert(0, os.path.join(SRC_DIR, 'apps'))
 
 ###############################################################################
 ## Global Settings
@@ -37,7 +38,7 @@ TEMPLATE_DEBUG = False
 ALLOWED_HOSTS = ['*']
 ROOT_URLCONF = 'src.core.urls'
 WSGI_APPLICATION = 'src.core.wsgi.application'
-# AUTH_USER_MODEL = 'user_auth.Account'
+AUTH_USER_MODEL = 'authentication.Account'
 
 ###############################################################################
 ## App Definitions
@@ -55,7 +56,10 @@ DJANGO_APPS = (
 THIRD_PARTY_APPS = (
     'rest_framework',
 )
-LOCAL_APPS = ()
+
+LOCAL_APPS = (
+    'authentication',
+)
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -88,17 +92,17 @@ USE_TZ = True
 ###############################################################################
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(CORE_DIR, 'static')
 STATICFILES_DIRS = (
-    os.path.join(REPO_DIR, 'var', 'www', 'static'),
+    os.path.join(SRC_DIR, 'var', 'www', 'static'),
 )
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(REPO_DIR, 'var', 'www', 'media')
+MEDIA_ROOT = os.path.join(SRC_DIR, 'var', 'www', 'media')
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
-)
+# TEMPLATE_DIRS = (
+#     os.path.join(CORE_DIR, 'templates'),
+# )
 
 # http://stackoverflow.com/a/24143109/1639449
 # Used to get request params into context for templatetags
