@@ -1,5 +1,5 @@
 (() ->
-    Authentication = ($http, $cookies) ->
+    Authentication = ($http, $cookies, Message) ->
         'ngInject'
         #######################################################################
         ## Utils
@@ -21,14 +21,12 @@
         #######################################################################
         ## Login
         #######################################################################
-        loginError = () ->
-            console.error 'Epic failure!'
-            return
+        loginError = (data, status, headers, config) ->
+            Message.create 'danger', data.data.message
 
         loginSuccess = (data, status, headers, config) ->
             setAuthenticatedAccount data.data
             window.location = '/'
-            return
 
         login = (email, password) ->
             $http.post('/api/v1/auth/login/', {
@@ -39,14 +37,12 @@
         #######################################################################
         ## Logout
         #######################################################################
-        logoutError = () ->
-            console.error 'Epic failure!'
-            return
+        logoutError = (data, status, headers, config) ->
+            Message.create 'danger', data.data.message
 
         logoutSuccess = (data, status, headers, config) ->
             unauthenticate()
             window.location = '/'
-            return
 
         logout = () ->
             $http.post('/api/v1/auth/logout/').then logoutSuccess, logoutError
@@ -54,13 +50,11 @@
         #######################################################################
         ## Register
         #######################################################################
-        registerError = () ->
-            console.error 'Epic failure!'
-            return
+        registerError = (data, status, headers, config) ->
+            Message.create 'danger', data.data.message
 
         registerSuccess = (data, status, headers, config) ->
             Authentication.login email, password
-            return
 
         register = (email, password, username) ->
             $http.post('/api/v1/accounts/', {

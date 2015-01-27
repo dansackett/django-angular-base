@@ -5,6 +5,7 @@
         'app.routes',
         'app.layout',
         'app.authentication',
+        'app.utils',
     ]
 
     # Global app module declarations here
