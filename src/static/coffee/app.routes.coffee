@@ -19,6 +19,11 @@
             controller: 'LoginController as vm',
             templateUrl: '/static/templates/authentication/login.html',
         }
+        .state 'profile', {
+            url: "/:username",
+            controller: 'ProfileController as vm',
+            templateUrl: '/static/templates/authentication/profile.html',
+        }
 
         return
 
